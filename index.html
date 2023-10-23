@@ -142,7 +142,7 @@
                     // Get input from the form
                     var num1 = parseInt(document.getElementById("fnum").value);
                     var num2 = parseInt(document.getElementsByName("num2")[0].value);
-                    
+                    var num3 = document.querySelector("#fnum").value;
                     // Calculation
                     var result = ///
 
@@ -151,7 +151,7 @@
 
                 }
             </script>
-            <p> <input type="text" name="num1" id= "fnum"/> + <input type="text" name="num2">
+            <p> <input type="text" name="num1" id= "fnum"/> + <input type="text" name="num2" id="snum">
                 <input type="button" value="=" onclick="calculate();">
                 <label id="result"> ? </label>
             </p>
