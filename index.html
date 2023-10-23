@@ -124,7 +124,7 @@
                     // For rewriting the content of the paragraph
 
                     document.getElementById("p1").innerHTML = "<b> Changed </b>";
-                    document.getElementById("p2").innerHTML = document.write("<img src=\"img/dooropengoat.jpg\"")
+                    document.getElementById("p2").innerHTML = "<img src=\"img/dooropengoat.jpg\"";
                     document.getElementById("p3").innerHTML = "<i> So this one is slanted now! </i>";
                     
                     //var A = document.getElementById("p6").textContent; (Optional way of doing it)
@@ -140,8 +140,8 @@
             <script>
                 function calculate() {
                     // Get input from the form
-                    var num1 = parseInt(document.getElementById("fnum").value);
-                    var num2 = parseInt(document.getElementsByName("num2")[0].value);
+                    var num1 = parseInt(document.getElementById("num1").value);
+                    var num2 = parseInt(document.getElementById("num2").value);
                     var num3 = document.querySelector("#fnum").value;
                     // Calculation
                     var result = ///
@@ -151,7 +151,7 @@
 
                 }
             </script>
-            <p> <input type="text" name="num1" id= "fnum"/> + <input type="text" name="num2" id="snum">
+            <p> <input type="text" name="num1" id= "1stnum"/> + <input type="text" name="num2">
                 <input type="button" value="=" onclick="calculate();">
                 <label id="result"> ? </label>
             </p>
