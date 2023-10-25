@@ -231,6 +231,14 @@
 
             <div id="message">
             </div>
+            <script>
+                function changeHTML() {
+                    var code = document.getElementById("code").textContent;
+                    document.getElementById("messageHTML").innerHTML = code;
+                }
+                var btn = document.getElementById("tryit");
+                btn.addEventListener("click", changeHTML, false);
+            </script>
 
 
         </div>
