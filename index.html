@@ -47,7 +47,7 @@
                 var g = "Hello World";
                 var d = k + c;
                 var f = k * e;
-                console.log(typeof (c));
+                // console.log(typeof (c));
                 document.write("<p>" + k + " * " + e + "=" + f + "</p>")
                 document.write("<p> " + c + " + " + k + "=" + d + "</p>");
 
@@ -95,9 +95,10 @@
             <p> Try alert, open, location, url </p>
             <script>
                 // For window alert messeges and relocation
-                window.alert("Welcome to the page, by clicking okay, you will get cookies!!");
-                alert("This page was last edited:" + document.lastModified);
-                console.log(window.location.href);
+                // window.alert("Welcome to the page, by clicking okay, you will get cookies!!");
+                // alert("This page was last edited:" + document.lastModified);
+                console.log(window.location);
+                console.log(document.lastModified);
 
             </script>
 
@@ -140,18 +141,18 @@
             <script>
                 function calculate() {
                     // Get input from the form
-                    var num1 = parseInt(document.getElementById("num1").value);
-                    var num2 = parseInt(document.getElementById("num2").value);
+                    var num1 = parseInt(document.getElementById("fnum").value);
+                    var num2 = parseInt(document.getElementsById("num2")[0].value);
                     var num3 = document.querySelector("#fnum").value;
                     // Calculation
-                    var result = ///
+                    var result = num1 + num2;
 
                     // Outcome
-                    document.getElementById("result").textContent ="--"+ result;
+                    document.getElementById("result").textContent =result.toString();
 
                 }
             </script>
-            <p> <input type="text" name="num1" id= "1stnum"/> + <input type="text" name="num2">
+            <p> <input type="text" name="num1" id= "fnum"/> + <input type="text" name="num2">
                 <input type="button" value="=" onclick="calculate();">
                 <label id="result"> ? </label>
             </p>
