@@ -83,7 +83,7 @@
                 document.write("<tr> <td> colspan=\"2\">information<\<td><tr>");
                 document.write("<tr> <td> Name: </td> <td> D'Andre Lambert </td> </tr>");
                 document.write("</table>");
-                console.log(result);
+                // console.log(result);
             </script>
 
         </div>
@@ -235,6 +235,7 @@
                 function changeHTML() {
                     var code = document.getElementById("code").textContent;
                     document.getElementById("messageHTML").innerHTML = code;
+                    console.log(code);
                 }
                 var btn = document.getElementById("tryit");
                 btn.addEventListener("click", changeHTML, false);
@@ -256,7 +257,7 @@
                 <select id="condition">
                     <option> Fair</option>
                     <option> Good</option>
-                </select>.
+                </select>
             </p>
 
             <p id="price">
@@ -264,8 +265,44 @@
             </p>
 
             <script type="text/javascript">
+                   console.log("Event fired--- getvehicleprice");
+                // Event --- Whenver the value changes, the price will be updated.
+                function getvehicleprice() {
 
+                    console.log("Change action later!");
 
+                    // Get input
+                    var year = document.getElementById("year").value;
+                    var carcondition = document.getElementById("condition").value;
+                    console.log(year, carcondition);
+                    // Make decision
+        
+                    if (year == "2003" && carcondition == "Fair"){
+                        price = 2000;
+                    }
+                    else if (year == "2003" && carcondition == "Good"){
+                        price = 2500;
+                    }
+                    if (year == "2004" && carcondition == "Fair"){
+                        price = 2750;
+                    }
+                    else if (year == "2004" && carcondition == "Good"){
+                        price = 3250;
+                    }
+                    else {
+                        price = "Please select the year and condition of the car";
+                    }
+                    console.log(price);
+
+                    // Shout Ouput
+                    document.getElementById('price').textContent = "The price is " + price;
+
+                }
+
+                    // Register event with the event handler
+                    document.querySelector("#year").addEventListener('change', getvehicleprice, false);
+                    document.querySelector("#condition").addEventListener('change', getvehicleprice, false);
+                 
 
             </script>
 
