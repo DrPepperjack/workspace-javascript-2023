@@ -354,9 +354,9 @@
         <div class="practice">
             <h1> Switch practice -- Insurance Application</h1>
             <p> Choose your coverage
-                <input type="radio" name="coverage" id="cov1" value="100000">100000
-                <input type="radio" name="coverage" id="cov2" value="200000">200000
-                <input type="radio" name="coverage" id="cov3" value="300000">300000
+                <input type="radio" name="coverage" id="cover1" value="100000" checked>100000
+                <input type="radio" name="coverage" value="200000">200000
+                <input type="radio" name="coverage" value="300000">300000
 
             </p>
             <p> Choose your age group.
@@ -372,23 +372,44 @@
             <p>
                 <input type="button" value="Check Premium">
             </p>
-            <p id="result">
+            <p id="totalpremium">
 
             </p>
-
             <script>
-                // Complete Event Set up
-                function checkPremium() {
-                    // Get Element By Name
-                    var coverage = document.getElementsByNames("coverage")[0].value;
-                    var otherway = document.querySelector('input[name="coverage"]:checked').value;
-                    console.log(coverage, otherway);
+                    // complete the event set up 
+                    function getpremium(){
+                        // get coverage input
+                        var coverage =parseFloat(document.querySelector('input[name="coverage"]:checked').value);
+                        console.log("the coverage is"+coverage);
+                        // get age group input
+                        var ageindex = document.getElementById("agegroup").selectedIndex;
+                        console.log("the age index is "+ageindex);
+                        // make decision
+                        var premium = 0;
+                        var base = 10;
+                        var agefactor = 0;
+                        switch (ageindex) {
+                            case 0:
+                                agefactor = 0.08;
+                                break;
+                            case 1:
+                                agefactor = 0.09;
+                                break;                           
+                            default:
+                                break;
+                        }
+                        premium = base + agefactor * coverage/1000;
+                        console.log("the premium is "+premium);
+                        //output
 
-                }
-                
-                // Register Event
-                var radioE = document.getElementsByName("cov1").checked;
-                console.log(radioE);
+                    }
+
+                    var radioE = document.getElementById("cover1").checked;
+                    console.log(radioE);
+
+                    document.querySelector('input[value="Check Premium"]').addEventListener("click",getpremium,false);
+                    
+
             </script>
 
         </div>
