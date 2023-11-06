@@ -21,3 +21,10 @@ document.querySelector('[value="4"]').nextSibling.nodeValue = M.toString()+"-"+N
 document.querySelector('[value="3"]').nextSibling.nodeValue = M.toString()+"-"+N.toString()+"-"+K.toString();
 document.querySelector('[value="2"]').nextSibling.nodeValue = M.toString()+"-"+N.toString()+"-"+K.toString();
 document.querySelector('[value="1"]').nextSibling.nodeValue = M.toString()+"-"+N.toString()+"+"+K.toString();
+
+// Action -- click and change style
+
+function changestyle(e){
+    e.preventDefault();  //prevent the default action
+    
+}
