@@ -438,6 +438,30 @@
 
             <!-- output section -->
             <div id="output">
+                <script>
+                    function maketable(){
+                        console.log("Button clicked!-- in maketable");
+                        var num = parseInt(document.getElementById("inputnumber2").value);
+                        var output = "";
+                        output += "<table>";
+                        for(var i = 1; i<=num; i++){
+                            output +="<tr>";
+                                //inside loop 
+                                for(var j = 1; j<=i;j++){
+                                    product = i*j;
+                                    output +="<td>" + i +"x" + j+"="+prduct+"</td>";
+                                }
+                            output +="</tr>";
+                        }
+                        output += "</table>";
+                        console.log(output);
+                        document.getElementById("looptable").innerHTML = output;
+                    }
+
+                    // bind the event
+                    document.getElementById("dotable").addEventListener("click",maketable,false);
+
+            </script>
 
 
             </div>
