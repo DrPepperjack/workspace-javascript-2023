@@ -36,9 +36,10 @@ function changestyle(e) {
     } else {
 
     }
-    this.animate([{transform:'rotate(0deg)'},{transform:'rotate(180deg)'}],{duration:3000, fill:"forwards"});
+    this.animate([{transform:'rotate(0deg)'}],{duration:3000, fill:"forwards"});
 }
-
+    //change the style back to normal when clicked
+    
     // add the event listener to all the answers
     for (var i = 0; i < 4; i++) {
         document.getElementsByClassName("answer")[i].addEventListener("click", changestyle, false);
