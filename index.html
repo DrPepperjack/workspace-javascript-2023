@@ -376,39 +376,39 @@
 
             </p>
             <script>
-                    // complete the event set up 
-                    function getpremium(){
-                        // get coverage input
-                        var coverage =parseFloat(document.querySelector('input[name="coverage"]:checked').value);
-                        console.log("the coverage is"+coverage);
-                        // get age group input
-                        var ageindex = document.getElementById("agegroup").selectedIndex;
-                        console.log("the age index is "+ageindex);
-                        // make decision
-                        var premium = 0;
-                        var base = 10;
-                        var agefactor = 0;
-                        switch (ageindex) {
-                            case 0:
-                                agefactor = 0.08;
-                                break;
-                            case 1:
-                                agefactor = 0.09;
-                                break;                           
-                            default:
-                                break;
-                        }
-                        premium = base + agefactor * coverage/1000;
-                        console.log("the premium is "+premium);
-                        //output
-
+                // complete the event set up 
+                function getpremium() {
+                    // get coverage input
+                    var coverage = parseFloat(document.querySelector('input[name="coverage"]:checked').value);
+                    console.log("the coverage is" + coverage);
+                    // get age group input
+                    var ageindex = document.getElementById("agegroup").selectedIndex;
+                    console.log("the age index is " + ageindex);
+                    // make decision
+                    var premium = 0;
+                    var base = 10;
+                    var agefactor = 0;
+                    switch (ageindex) {
+                        case 0:
+                            agefactor = 0.08;
+                            break;
+                        case 1:
+                            agefactor = 0.09;
+                            break;
+                        default:
+                            break;
                     }
+                    premium = base + agefactor * coverage / 1000;
+                    console.log("the premium is " + premium);
+                    //output
 
-                    var radioE = document.getElementById("cover1").checked;
-                    console.log(radioE);
+                }
 
-                    document.querySelector('input[value="Check Premium"]').addEventListener("click",getpremium,false);
-                    
+                var radioE = document.getElementById("cover1").checked;
+                console.log(radioE);
+
+                document.querySelector('input[value="Check Premium"]').addEventListener("click", getpremium, false);
+
 
             </script>
 
@@ -433,38 +433,39 @@
             <!--  Input number box -->
             <p> N = <input type="number" min="1" max="10" id="inputnumber2"> </p>
             <p>
-                <input type="button" value="Click for multiplication table">
+                <input type="button" id="dotable" value="Click for multiplication table">
             </p>
 
             <!-- output section -->
-            <div id="output">
-                <script>
-                    function maketable(){
-                        console.log("Button clicked!-- in maketable");
-                        var num = parseInt(document.getElementById("inputnumber2").value);
-                        var output = "";
-                        output += "<table>";
-                        for(var i = 1; i<=num; i++){
-                            output +="<tr>";
-                                //inside loop 
-                                for(var j = 1; j<=i;j++){
-                                    product = i*j;
-                                    output +="<td>" + i +"x" + j+"="+prduct+"</td>";
-                                }
-                            output +="</tr>";
-                        }
-                        output += "</table>";
-                        console.log(output);
-                        document.getElementById("looptable").innerHTML = output;
-                    }
+            <div id="looptable">
 
-                    // bind the event
-                    document.getElementById("dotable").addEventListener("click",maketable,false);
-
-            </script>
 
 
             </div>
+            <script>
+                function maketable() {
+                    console.log("Button clicked!-- in maketable");
+                    var num = parseInt(document.getElementById("inputnumber2").value);
+                    var output = "";
+                    output += "<table>";
+                    for (var i = 1; i <= num; i++) {
+                        output += "<tr>";
+                        //inside loop 
+                        for (var j = 1; j <= i; j++) {
+                            product = i * j;
+                            output += "<td>" + i + "x" + j + "=" + prduct + "</td>";
+                        }
+                        output += "</tr>";
+                    }
+                    output += "</table>";
+                    console.log(output);
+                    document.getElementById("looptable").innerHTML = output;
+                }
+
+                // bind the event
+                document.getElementById("dotable").addEventListener("click", maketable, false);
+
+            </script>
 
         </div>
 
@@ -490,7 +491,7 @@
         <div class="practice">
             <h1>Change Attribute -- Rolling a dice </h1>
             <p> <input type="button" id="roll" value="roll" /> </p>
-            <p> <img src="img/die1.png"> </p>
+            <p> <img id="dieimage" src="img/die1.png"> </p>
             <table>
                 <tr>
                     <th>Result</th>
@@ -511,7 +512,41 @@
                     <td id="r6"></td>
                 </tr>
             </table>
+            <script>
+                var Statistics = [0, 0, 0, 0, 0, 0];
+                // Event Handler
+                function rolldice() {
+                    // Get the random number
+                    var n = Math.floor(Math.random() * 6) + 1;
+                    // update the statistics
+                    Statistics[n - 1] += 1;
 
+                    // update the table
+                    document.getElementById("r" + n).textContent = Statistics[n - 1].toString();
+
+                    // change the image element
+                    var e = document.getElementById('dieimage');
+                    e.setAttribute("src", "img/die" + n + ".png");
+                }
+                // Register Event Name
+                document.getElementById("roll").addEventListener("click", rolldice, false);
+
+                //Array Practice (Seperate from the dice practice)
+
+                var testarray = [1, 2, 3, 4, 5, 6];
+                testarray.push(7);
+                testarray.push(9);
+                testarray.pop();
+                for (var i in testarray) {
+                    console.log(i, testarray[i])
+                }
+
+                testarray.forEach(e => console.log(e));
+
+                console.log(testarray); // for debugging purposes only
+
+
+            </script>
         </div>
 
 
@@ -533,8 +568,25 @@
                 <img src="img/usca5.jpg" alt="usca">
             </div>
             <script>
-                // array objects
+                // design the for loop (self-retrieval) array
 
+
+                // array & element objects
+                var imagelist = document.querySelectorAll(".img-container-hide");
+                var index = 0;
+                imagelist[index].setAttribute("class", "img-container");
+
+                function updatebanner(){
+                    imagelist[index].setAttribute("class", "img-container-hide");
+                    index++;
+                    index = index % 5;
+                    imagelist[index].setAttribute("class", "img-container");
+                }
+
+                setInterval(updatebanner, 5000);
+                
+
+                console.log(imagelist); // for debugging purposes only
             </script>
 
 
